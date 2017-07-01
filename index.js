@@ -17,27 +17,15 @@ var api = new ParseServer({
   cloud: process.env.CLOUD_CODE_MAIN || __dirname + '/cloud/main.js',
   appId: process.env.APP_ID || 'myAppId',
   masterKey: process.env.MASTER_KEY || '', //Add your master key here. Keep it secret!
-  serverURL: process.env.SERVER_URL || 'http://localhost:1337/parse',  // Don't forget to change to https if needed
-  liveQuery: {
-    classNames: ["Posts", "Comments"] // List of classes to support for query subscriptions
-  },
+  serverURL: process.env.SERVER_URL || 'http://localhost:1339/parse',  // Don't forget to change to https if needed
   filesAdapter: new S3Adapter(
     "AKIAIPQUD3JUDVEQ2VKA",
     "d3Y+teytqBY57yEU62sio3GAcLQQq4IGH8IDpF7b", 
     "ahph2017",
     {directAccess: true}
   ),
-  oauth: {
-    twitter: {
-       consumer_key: "hpCGVutJhbsmSyOhM7hCU9tSh",
-       consumer_secret: "LBlAevBbbYN8G0RIz3uQD7htD0fSuibwiS7uRFP27MFJL2UFRG"
-    }
-  },
   push: {
     adapter: FCMAdapter
-  },
-  liveQuery: {
-    classNames: ['Conversation','ParseMessage']
   }
 });
 // Client-keys like the javascript key or the .NET key are not necessary with parse-server

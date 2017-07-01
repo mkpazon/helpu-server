@@ -29,11 +29,11 @@ Parse.Cloud.afterSave("TempNotif", function(request, response) {
         where: new Parse.Query(Parse.Installation),
         data: object
     }, {useMasterKey: true}).then(function(success) {
-        console.log("Push sent.");
-        response.success("Success");
+        console.log("Push sent: "+JSON.stringify(success));
+        
     }, function(error) {
         console.log("Got an error " + error.code + " : " + error.message);
-        response.error("Failed to send push app_update");
+    
     });
 });
 
