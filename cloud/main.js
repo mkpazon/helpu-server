@@ -19,29 +19,23 @@ var ClassConstants = {
 Parse.Cloud.afterSave("TempNotif", function(request, response) {
     console.log("\n######TempNotif.afterSave()");
     var installationQuery = new Parse.Query(Parse.Installation);
-    installationQuery.equalTo("objectId", "Oc3pXVrtFn");
+    //installationQuery.equalTo("objectId", "Oc3pXVrtFn");
     var object = {
         type: "scheduleConfirmed",
         message: "Your booking has been confirmed"
     };
 
-    installationQuery.find(function(results) {
-        console.log("installation query results:"+JSON.stringify(results));
+    
+    Parse.Push.send({
+        where: installationQuery,
+        data: object
+    }, {useMasterKey: true }).then(function(success) {
+        console.log("Push sent.");
+        response.success();
     }, function(error) {
         console.log("Got an error " + error.code + " : " + error.message);
+        response.success();
     });
-
-        // Parse.Push.send({
-        //     where: installationQuery,
-        //     data: object
-        // }, {useMasterKey: true }).then(function(success) {
-        //     console.log("Push sent.");
-        //     response.success();
-        // }, function(error) {
-        //     console.log("Got an error " + error.code + " : " + error.message);
-        //     response.success();
-        // });
-
 });
 
 
