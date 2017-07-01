@@ -31,7 +31,9 @@ Parse.Cloud.define("sendNotification", function(request, response) {
             data: object
         }, {useMasterKey: true }).then(function(success) {
             console.log("Push sent.");
+            response.success();
         }, function(error) {
             console.log("Got an error " + error.code + " : " + error.message);
+            response.success();
         });
 });
