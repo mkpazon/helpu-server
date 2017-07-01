@@ -16,7 +16,7 @@
     "parse-server": "*"
   },
   "scripts": {
-     "start": "PORT='1338' FCM_SERVER_KEY='AIzaSyDsIitD0Q8yjLHNorxjrRLcjWqUSFSmYJ4' DATABASE_URI='mongodb://db:qazwsx123098@ds145312.mlab.com:45312/ah2017' CLOUD_PATH='./cloud/main.js' APP_ID='bitbitbitbit1234567890FreeBeesAppId' MASTER_KEY='bitbitbitbit1234567890FreeBeesMasterKey' PARSE_MOUNT_PATH='/parse' SERVER_URL='http://localhost:1339/parse' node index.js"
+     "start": "PORT='1339' FCM_SERVER_KEY='AIzaSyDsIitD0Q8yjLHNorxjrRLcjWqUSFSmYJ4' DATABASE_URI='mongodb://db:qazwsx123098@ds145312.mlab.com:45312/ah2017' CLOUD_PATH='./cloud/main.js' APP_ID='bitbitbitbit1234567890FreeBeesAppId' MASTER_KEY='bitbitbitbit1234567890FreeBeesMasterKey' PARSE_MOUNT_PATH='/parse' SERVER_URL='http://localhost:1339/parse' node index.js"
   },
   "engines": {
     "node": ">=4.3"
