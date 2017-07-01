@@ -25,16 +25,15 @@ Parse.Cloud.afterSave("TempNotif", function(request, response) {
         message: "Your booking has been confirmed"
     };
 
-    
     Parse.Push.send({
-        where: installationQuery,
+        where: new Parse.Query(Parse.Installation),
         data: object
-    }, {useMasterKey: true }).then(function(success) {
+    }).then(function(success) {
         console.log("Push sent.");
-        response.success();
+        response.success("Success");
     }, function(error) {
         console.log("Got an error " + error.code + " : " + error.message);
-        response.success();
+        response.error("Failed to send push app_update");
     });
 });
 
