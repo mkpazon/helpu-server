@@ -20,7 +20,6 @@ Parse.Cloud.define("sendNotification", function(request, response) {
     console.log("sendNotification");
     Parse.Cloud.useMasterKey();
      var installationQuery = new Parse.Query(Parse.Installation);
-        var coordinates = item.get(ClassConstants.Item.FIELD_LOCATION_COORDS);
         installationQuery.eqaulTo("objectId", "Oc3pXVrtFn");
         var object = {
             type: "scheduleConfirmed",
