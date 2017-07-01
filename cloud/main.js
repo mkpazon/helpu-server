@@ -27,10 +27,8 @@ Parse.Cloud.afterSave("TempNotif", function(request, response) {
 
     installationQuery.find(function(results) {
         console.log("installation query results:"+JSON.stringify(results));
-        response.success(results);
     }, function(error) {
         console.log("Got an error " + error.code + " : " + error.message);
-        response.error("Failed to send push app_update");
     });
 
         // Parse.Push.send({
@@ -67,4 +65,5 @@ Parse.Cloud.define("sendNotification", function(request, response) {
         alert('Failed to create new object, with error code: ' + error.message);
       }
     });
+    response.success("Success");
 });
