@@ -28,7 +28,7 @@ Parse.Cloud.afterSave("TempNotif", function(request, response) {
     Parse.Push.send({
         where: new Parse.Query(Parse.Installation),
         data: object
-    }).then(function(success) {
+    }, {useMasterKey: true}).then(function(success) {
         console.log("Push sent.");
         response.success("Success");
     }, function(error) {
