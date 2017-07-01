@@ -1,0 +1,2 @@
+DEV
+sudo pm2 start npm --name FreeBeesDev -- run start:dev
