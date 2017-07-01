@@ -24,7 +24,7 @@ var api = new ParseServer({
   filesAdapter: new S3Adapter(
     "AKIAIPQUD3JUDVEQ2VKA",
     "d3Y+teytqBY57yEU62sio3GAcLQQq4IGH8IDpF7b", 
-    "thefreebees--us",
+    "ahph2017",
     {directAccess: true}
   ),
   oauth: {
