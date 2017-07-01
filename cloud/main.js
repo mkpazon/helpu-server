@@ -26,14 +26,22 @@ Parse.Cloud.define("sendNotification", function(request, response) {
             message: "Your booking has been confirmed"
         };
 
-        Parse.Push.send({
-            where: installationQuery,
-            data: object
-        }, {useMasterKey: true }).then(function(success) {
-            console.log("Push sent.");
-            response.success();
+        installationQuery.find(function(results) {
+            console.log("installation query results:"+JSON.stringify(results));
+            response.success(results);
         }, function(error) {
             console.log("Got an error " + error.code + " : " + error.message);
-            response.success();
+            response.error("Failed to send push app_update");
         });
+
+        // Parse.Push.send({
+        //     where: installationQuery,
+        //     data: object
+        // }, {useMasterKey: true }).then(function(success) {
+        //     console.log("Push sent.");
+        //     response.success();
+        // }, function(error) {
+        //     console.log("Got an error " + error.code + " : " + error.message);
+        //     response.success();
+        // });
 });
