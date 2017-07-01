@@ -20,7 +20,7 @@ Parse.Cloud.define("sendNotification", function(request, response) {
     console.log("sendNotification");
     Parse.Cloud.useMasterKey();
      var installationQuery = new Parse.Query(Parse.Installation);
-        installationQuery.eqaulTo("objectId", "Oc3pXVrtFn");
+        installationQuery.equalTo("objectId", "Oc3pXVrtFn");
         var object = {
             type: "scheduleConfirmed",
             message: "Your booking has been confirmed"
